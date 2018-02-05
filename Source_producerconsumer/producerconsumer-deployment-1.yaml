@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: producerconsumer-1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: producerconsumer-1
+        tier: backend
+    spec:
+      containers:
+      - name: producerconsumer-1
+        image: janhackathon/producerconsumer:1.0
+        args: ["--role=consumer"]
+        envFrom:
+          - configMapRef:
+                name: producer-consumer-config
+        ports:
+        - containerPort: 20001

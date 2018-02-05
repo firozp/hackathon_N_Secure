@@ -1,0 +1,9 @@
+endpoints:
+  prometheus:
+    path: "prometheus-metrics"
+management:
+  security:
+    enabled: false
+server:
+   tomcat:
+     max-connections: 1000

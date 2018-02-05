@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: producerconsumer-2
+  labels:
+    app: producerconsumer-2
+    tier: backend
+spec:
+  type: NodePort
+  ports:
+    # the port that this service should serve on
+  - port: 20001
+  selector:
+    app: producerconsumer-2
+    tier: backend
